@@ -42,6 +42,7 @@ MIT
 - [http://yaml.org/](http://yaml.org/).
 - [JS-Demo](http://nodeca.github.io/js-yaml/)
 - [YAML Wikipedia](http://en.wikipedia.org/wiki/YAML)
+- [YAML Tutorial](http://rhnh.net/2011/01/31/yaml-tutorial)
 
 ## Contribution
 
