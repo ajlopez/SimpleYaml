@@ -37,6 +37,12 @@ TBD
 
 MIT
 
+## References
+
+- [http://yaml.org/](http://yaml.org/).
+- [JS-Demo](http://nodeca.github.io/js-yaml/)
+- [YAML Wikipedia](http://en.wikipedia.org/wiki/YAML)
+
 ## Contribution
 
 Feel free to [file issues](https://github.com/ajlopez/SimpleYaml) and submit
