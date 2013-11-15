@@ -27,3 +27,32 @@ exports['get indent and name'] = function (test) {
     test.equal(lex.nextToken(), null);
 }
 
+exports['get indent, name, indent, name'] = function (test) {
+    var lex = lexer.createLexer('name\r\nname2');
+    
+    var token = lex.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Indent);
+    test.equal(token.value, 0);
+    
+    token = lex.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Name);
+    test.equal(token.value, 'name');
+    
+    var token = lex.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Indent);
+    test.equal(token.value, 0);
+    
+    token = lex.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Name);
+    test.equal(token.value, 'name2');
+    
+    test.equal(lex.nextToken(), null);
+}
