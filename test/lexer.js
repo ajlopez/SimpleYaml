@@ -80,3 +80,21 @@ exports['get indent, name and punctuation'] = function (test) {
     
     test.equal(lex.nextToken(), null);
 }
+
+exports['get indent and integer'] = function (test) {
+    var lex = lexer.createLexer('123');
+    
+    var token = lex.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Indent);
+    test.equal(token.value, 0);
+    
+    token = lex.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Integer);
+    test.equal(token.value, '123');
+    
+    test.equal(lex.nextToken(), null);
+}
