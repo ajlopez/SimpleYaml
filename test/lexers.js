@@ -98,3 +98,21 @@ exports['get indent and integer'] = function (test) {
     
     test.equal(lexer.nextToken(), null);
 }
+
+exports['get indent and real'] = function (test) {
+    var lexer = lexers.createLexer('123.45');
+    
+    var token = lexer.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Indent);
+    test.equal(token.value, 0);
+    
+    token = lexer.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Real);
+    test.equal(token.value, '123.45');
+    
+    test.equal(lexer.nextToken(), null);
+}
