@@ -81,6 +81,36 @@ exports['get indent, name and punctuation'] = function (test) {
     test.equal(lexer.nextToken(), null);
 }
 
+exports['get indent, name, punctuation and name value'] = function (test) {
+    var lexer = lexers.createLexer('    name: value');
+    
+    var token = lexer.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Indent);
+    test.equal(token.value, 4);
+    
+    token = lexer.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Name);
+    test.equal(token.value, 'name');
+    
+    token = lexer.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Punctuation);
+    test.equal(token.value, ':');
+    
+    token = lexer.nextToken();
+    
+    test.ok(token);
+    test.equal(token.type, TokenType.Name);
+    test.equal(token.value, 'value');
+    
+    test.equal(lexer.nextToken(), null);
+}
+
 exports['get indent and integer'] = function (test) {
     var lexer = lexers.createLexer('123');
     
